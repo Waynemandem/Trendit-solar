@@ -2,7 +2,7 @@
 
 Official website for **TrendIT Systems**, a business based in Kubwa, Abuja, Nigeria offering Solar & Inverter installation, IPTV subscriptions, and Technology/IT support services.
 
-**Live site:** https://trendit-solar.vercel.app
+**Live site:** https://trendit-solar.vercel.app or https://www.trenditsystems.com.ng/
 
 ---
 
