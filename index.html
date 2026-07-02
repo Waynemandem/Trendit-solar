@@ -535,6 +535,139 @@
     @keyframes pulse-ring { 0% { transform: scale(1); opacity: 0.7; } 100% { transform: scale(1.45); opacity: 0; } }
     @keyframes popIn { from { opacity: 0; transform: scale(0.5); } to { opacity: 1; transform: scale(1); } }
 
+
+    /* ============================================================
+       Contact Form
+    ============================================================ */
+#contact{
+    padding:100px 0;
+    background:var(--cream);
+}
+.contact-header{
+    text-align:center;
+    margin-bottom:60px;
+}
+.contact-header .section-sub{
+    margin:auto;
+}
+.contact-wrapper{
+    display:grid;
+    grid-template-columns:1fr 1.3fr;
+    gap:50px;
+}
+.contact-info{
+    background:linear-gradient(
+        135deg,
+        var(--green-deep),
+        var(--green-mid)
+    );
+    color:white;
+
+    padding:40px;
+
+    border-radius:24px;
+}
+.contact-info h3{
+    font-family:var(--font-display);
+    margin-bottom:30px;
+    font-size:2rem;
+}
+
+.contact-item{
+    padding:15px 0;
+    border-bottom:1px solid rgba(255,255,255,.15);
+}
+
+#contactForm{
+
+    background:white;
+
+    padding:40px;
+
+    border-radius:24px;
+
+    box-shadow:var(--shadow-md);
+
+}
+
+.input-group{
+
+    display:flex;
+
+    flex-direction:column;
+
+    margin-bottom:22px;
+
+}
+
+.input-group label{
+
+    margin-bottom:8px;
+
+    font-weight:600;
+
+}
+
+.input-group input,
+.input-group textarea,
+.input-group select{
+
+    padding:15px;
+
+    border:1px solid var(--border);
+
+    border-radius:12px;
+
+    font-size:15px;
+
+    font-family:inherit;
+
+    transition:.3s;
+
+}
+
+.input-group input:focus,
+.input-group textarea:focus,
+.input-group select:focus{
+
+    outline:none;
+
+    border-color:var(--green-light);
+
+    box-shadow:0 0 0 4px rgba(52,160,90,.15);
+
+}
+
+#formStatus{
+
+    margin-top:20px;
+
+    font-weight:600;
+
+    color:var(--green-mid);
+
+}
+
+@media(max-width:900px){
+
+.contact-wrapper{
+
+grid-template-columns:1fr;
+
+}
+
+}     
+.privacy-note{
+    margin-top:18px;
+    padding:14px 16px;
+    background:var(--green-pale);
+    border-left:4px solid var(--green-mid);
+    border-radius:12px;
+    font-size:.85rem;
+    line-height:1.6;
+    color:var(--charcoal-mid);
+}
+
     /* ============================================================
        SCROLL REVEAL
     ============================================================ */
@@ -1248,6 +1381,139 @@
   </section>
 
 
+  <section id="contact">
+  <div class="container">
+
+    <div class="contact-header reveal">
+      <span class="section-label">Contact Us</span>
+      <h2 class="section-title">
+        Let's Build Something <span>Great Together</span>
+      </h2>
+
+      <p class="section-sub">
+        Looking for solar installation, IPTV subscription, or IT support?
+        Fill out the form below and we'll get back to you within 24 hours.
+      </p>
+    </div>
+
+    <div class="contact-wrapper reveal">
+
+      <div class="contact-info">
+
+        <h3>Why Contact TrendIT?</h3>
+
+        <div class="contact-item">
+          ⚡ Free consultation
+        </div>
+
+        <div class="contact-item">
+          📍 Nationwide Installation
+        </div>
+
+        <div class="contact-item">
+          💬 Fast WhatsApp Support
+        </div>
+
+        <div class="contact-item">
+          🛠 Professional Technicians
+        </div>
+
+        <div class="contact-item">
+          ⭐ Affordable Pricing
+        </div>
+
+      </div>
+
+      <form
+        id="contactForm"
+        action="https://formspree.io/f/xrewyvbp"
+        method="POST"
+      >
+
+        <div class="input-group">
+          <label>Full Name</label>
+          <input
+            type="text"
+            name="name"
+            placeholder="John Doe"
+            required
+          >
+        </div>
+
+        <div class="input-group">
+          <label>Email Address</label>
+          <input
+            type="email"
+            name="email"
+            placeholder="john@email.com"
+            required
+          >
+        </div>
+
+        <div class="input-group">
+          <label>Phone Number</label>
+          <input
+            type="tel"
+            name="phone"
+            placeholder="+234..."
+          >
+        </div>
+
+        <div class="input-group">
+          <label>Service Needed</label>
+
+          <select name="service">
+
+            <option>Solar Installation</option>
+
+            <option>Solar Maintenance</option>
+
+            <option>IPTV Subscription</option>
+
+            <option>IPTV Reseller</option>
+
+            <option>IT Support</option>
+
+            <option>General Enquiry</option>
+
+          </select>
+        </div>
+
+        <div class="input-group">
+          <label>Message</label>
+
+          <textarea
+            name="message"
+            rows="6"
+            placeholder="Tell us what you need..."
+            required
+          ></textarea>
+        </div>
+
+        <input
+          type="hidden"
+          name="_subject"
+          value="New TrendIT Website Enquiry"
+        >
+
+        <button class="btn-primary" type="submit">
+          Send Message
+        </button>
+
+        <p class="privacy-note">
+         🔒 Your information is safe with us. We only use your details to respond to your enquiry. We never sell or share your personal information with third parties.
+        </p>
+
+
+        <p id="formStatus"></p>
+
+      </form>
+
+    </div>
+
+  </div>
+</section>
+
   <!-- ============================================================
        TESTIMONIALS
   ============================================================ -->
@@ -1484,6 +1750,45 @@
     document.querySelectorAll('.reveal, .reveal-stagger').forEach(el => {
       revealObserver.observe(el);
     });
+
+    const form = document.getElementById("contactForm");
+const status = document.getElementById("formStatus");
+
+form.addEventListener("submit", async function (e) {
+
+    e.preventDefault();
+
+    status.textContent = "Sending message...";
+
+    const data = new FormData(form);
+
+    const response = await fetch(form.action, {
+
+        method: "POST",
+
+        body: data,
+
+        headers: {
+            Accept: "application/json"
+        }
+
+    });
+
+    if (response.ok) {
+
+        status.textContent =
+            "✅ Thank you! Your message has been sent successfully.";
+
+        form.reset();
+
+    } else {
+
+        status.textContent =
+            "❌ Something went wrong. Please try again.";
+
+    }
+
+});
   </script>
 
 </body>
