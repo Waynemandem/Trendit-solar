@@ -8,20 +8,24 @@
 
   <meta name="geo.region" content="NG-FC" />
   <meta name="geo.placename" content="Kubwa, Abuja" />
-  <link rel="canonical" href="https://trenditsystems.com.ng/" />
+  <link rel="canonical" href="https://trendit-solar.vercel.app/" />
+
   <meta property="og:title" content="TrendIT Systems – Solar, IPTV & IT Solutions" />
-  <meta property="og:description" content="Affordable solar installation, IPTV subscriptions, and IT support for homes and businesses in Ogun State. Chat with us on WhatsApp for a free quote." />
+  <meta property="og:description" content="Affordable solar installation, IPTV subscriptions, and IT support for homes and businesses in Abuja, Nigeria. Chat with us on WhatsApp for a free quote." />
   <meta property="og:type" content="website" />
-  <meta property="og:url" content="https://trenditsystems.com.ng/" />
-  <meta property="og:image" content="https://trenditsystems.com.ng/images/og-image.png" />
+  <meta property="og:url" content="https://trendit-solar.vercel.app/" />
+  <meta property="og:image" content="https://trendit-solar.vercel.app/images/logo.jpg" />
   <meta property="og:site_name" content="TrendIT Systems" />
   <meta property="og:locale" content="en_NG" />
+
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="TrendIT Systems – Solar, IPTV & IT Solutions" />
-  <meta name="twitter:description" content="Affordable solar installation, IPTV subscriptions, and IT support for homes and businesses in Ogun State. Chat with us on WhatsApp for a free quote." />
-  <meta name="twitter:image" content="https://trenditsystems.com.ng/images/og-image.png" />
-  <meta name="twitter:site" content="@trenditsystems" />
-  <meta name="twitter:creator" content="@trenditsystems" />
+  <meta name="twitter:description" content="Affordable solar installation, IPTV subscriptions, and IT support for homes and businesses in Abuja, Nigeria." />
+  <meta name="twitter:image" content="https://trendit-solar.vercel.app/images/logo.jpg" />
+
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="TrendIT Systems" />
+  <meta name="keywords" content="solar installation Abuja, inverter installation Nigeria, IPTV subscription Nigeria, IT support Abuja, Kubwa solar, solar panels Nigeria, hotel PMS Nigeria" />
 
   <link rel="icon" href="images/logo.jpg" />
 
@@ -522,6 +526,90 @@
     .footer-bottom a:hover { color: var(--gold); }
 
     /* ============================================================
+       CONTACT BANNER STRIP + MODAL
+    ============================================================ */
+    #contact-banner {
+      padding: 28px 0;
+      background: var(--charcoal);
+      border-top: 1px solid rgba(255,255,255,0.06);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .banner-inner { display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+    .banner-text h3 { font-family: var(--font-display); font-size: 1.25rem; font-weight: 700; color: var(--white); margin-bottom: 4px; }
+    .banner-text h3 span { color: var(--green-light); }
+    .banner-text p { font-size: 0.9rem; color: rgba(255,255,255,0.5); }
+    .btn-banner {
+      display: inline-flex; align-items: center; gap: 10px; background: var(--green-mid); color: var(--white);
+      font-weight: 700; font-size: 0.95rem; padding: 14px 28px; border-radius: 100px; border: none; cursor: pointer;
+      white-space: nowrap; transition: background 0.25s, transform 0.2s, box-shadow 0.25s;
+      box-shadow: 0 4px 20px rgba(36,107,71,0.3);
+    }
+    .btn-banner:hover { background: var(--green-light); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(36,107,71,0.4); }
+    .btn-banner svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 2.5; }
+
+    /* Modal */
+    .modal-overlay {
+      position: fixed; inset: 0; background: rgba(12,22,28,0.75); backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px); z-index: 2000; display: flex; align-items: center;
+      justify-content: center; padding: 24px; opacity: 0; visibility: hidden; transition: opacity 0.3s, visibility 0.3s;
+    }
+    .modal-overlay.open { opacity: 1; visibility: visible; }
+    .modal-box {
+      background: var(--white); border-radius: var(--radius-lg); width: 100%; max-width: 520px;
+      padding: 40px 36px; position: relative; box-shadow: var(--shadow-lg);
+      transform: translateY(20px) scale(0.97); transition: transform 0.3s ease; max-height: 90vh; overflow-y: auto;
+    }
+    .modal-overlay.open .modal-box { transform: translateY(0) scale(1); }
+    .modal-close {
+      position: absolute; top: 16px; right: 18px; background: var(--cream); border: 1px solid var(--border);
+      border-radius: 50%; width: 34px; height: 34px; display: flex; align-items: center; justify-content: center;
+      cursor: pointer; transition: background 0.2s; color: var(--charcoal-mid);
+    }
+    .modal-close:hover { background: var(--border); }
+    .modal-close svg { width: 16px; height: 16px; stroke: currentColor; fill: none; stroke-width: 2.5; }
+    .modal-header { margin-bottom: 28px; }
+    .modal-header h2 { font-family: var(--font-display); font-size: 1.5rem; font-weight: 700; color: var(--charcoal); line-height: 1.2; }
+    .modal-header h2 span { color: var(--green-mid); }
+    .modal-header p { font-size: 0.88rem; color: var(--text-body); margin-top: 6px; }
+    .form-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+    .form-group label { font-size: 0.82rem; font-weight: 600; color: var(--charcoal-mid); letter-spacing: 0.02em; }
+    .form-group input, .form-group select, .form-group textarea {
+      width: 100%; padding: 12px 14px; border: 1.5px solid var(--border); border-radius: var(--radius);
+      font-family: var(--font-body); font-size: 0.93rem; color: var(--charcoal); background: var(--cream);
+      outline: none; transition: border-color 0.2s, box-shadow 0.2s; appearance: none;
+    }
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+      border-color: var(--green-mid); box-shadow: 0 0 0 3px rgba(36,107,71,0.1); background: var(--white);
+    }
+    .form-group textarea { resize: vertical; min-height: 100px; }
+    .form-group select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%234a5a62' stroke-width='2.5'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+      background-repeat: no-repeat; background-position: right 14px center; padding-right: 36px;
+    }
+    .btn-submit {
+      width: 100%; padding: 15px; background: var(--green-mid); color: var(--white); font-family: var(--font-body);
+      font-weight: 700; font-size: 1rem; border: none; border-radius: 100px; cursor: pointer; margin-top: 6px;
+      transition: background 0.25s, transform 0.2s, box-shadow 0.25s; box-shadow: 0 4px 20px rgba(36,107,71,0.28);
+      display: flex; align-items: center; justify-content: center; gap: 8px;
+    }
+    .btn-submit:hover { background: var(--green-deep); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(36,107,71,0.38); }
+    .btn-submit:disabled { background: var(--charcoal-mid); transform: none; box-shadow: none; cursor: not-allowed; }
+    .form-success { display: none; flex-direction: column; align-items: center; text-align: center; padding: 20px 0; gap: 14px; }
+    .form-success.show { display: flex; }
+    .success-icon { width: 60px; height: 60px; background: var(--green-pale); border-radius: 50%; display: flex; align-items: center; justify-content: center; }
+    .success-icon svg { width: 28px; height: 28px; stroke: var(--green-mid); fill: none; stroke-width: 2.5; }
+    .form-success h3 { font-family: var(--font-display); font-size: 1.3rem; font-weight: 700; color: var(--charcoal); }
+    .form-success p { font-size: 0.9rem; color: var(--text-body); max-width: 320px; }
+    .form-error { display: none; background: #fff0f0; border: 1px solid #fca5a5; border-radius: var(--radius); padding: 12px 16px; font-size: 0.85rem; color: #b91c1c; margin-bottom: 14px; }
+    .form-error.show { display: block; }
+    @media (max-width: 580px) {
+      .modal-box { padding: 30px 22px; }
+      .form-row { grid-template-columns: 1fr; }
+      .banner-inner { flex-direction: column; align-items: flex-start; gap: 16px; }
+    }
+
+    /* ============================================================
        FLOATING WHATSAPP BUTTON
     ============================================================ */
     .float-wa {
@@ -534,139 +622,6 @@
     .float-wa::before { content: ''; position: absolute; inset: -6px; border-radius: 50%; border: 2px solid rgba(37,211,102,0.45); animation: pulse-ring 2.5s ease-out infinite; }
     @keyframes pulse-ring { 0% { transform: scale(1); opacity: 0.7; } 100% { transform: scale(1.45); opacity: 0; } }
     @keyframes popIn { from { opacity: 0; transform: scale(0.5); } to { opacity: 1; transform: scale(1); } }
-
-
-    /* ============================================================
-       Contact Form
-    ============================================================ */
-#contact{
-    padding:100px 0;
-    background:var(--cream);
-}
-.contact-header{
-    text-align:center;
-    margin-bottom:60px;
-}
-.contact-header .section-sub{
-    margin:auto;
-}
-.contact-wrapper{
-    display:grid;
-    grid-template-columns:1fr 1.3fr;
-    gap:50px;
-}
-.contact-info{
-    background:linear-gradient(
-        135deg,
-        var(--green-deep),
-        var(--green-mid)
-    );
-    color:white;
-
-    padding:40px;
-
-    border-radius:24px;
-}
-.contact-info h3{
-    font-family:var(--font-display);
-    margin-bottom:30px;
-    font-size:2rem;
-}
-
-.contact-item{
-    padding:15px 0;
-    border-bottom:1px solid rgba(255,255,255,.15);
-}
-
-#contactForm{
-
-    background:white;
-
-    padding:40px;
-
-    border-radius:24px;
-
-    box-shadow:var(--shadow-md);
-
-}
-
-.input-group{
-
-    display:flex;
-
-    flex-direction:column;
-
-    margin-bottom:22px;
-
-}
-
-.input-group label{
-
-    margin-bottom:8px;
-
-    font-weight:600;
-
-}
-
-.input-group input,
-.input-group textarea,
-.input-group select{
-
-    padding:15px;
-
-    border:1px solid var(--border);
-
-    border-radius:12px;
-
-    font-size:15px;
-
-    font-family:inherit;
-
-    transition:.3s;
-
-}
-
-.input-group input:focus,
-.input-group textarea:focus,
-.input-group select:focus{
-
-    outline:none;
-
-    border-color:var(--green-light);
-
-    box-shadow:0 0 0 4px rgba(52,160,90,.15);
-
-}
-
-#formStatus{
-
-    margin-top:20px;
-
-    font-weight:600;
-
-    color:var(--green-mid);
-
-}
-
-@media(max-width:900px){
-
-.contact-wrapper{
-
-grid-template-columns:1fr;
-
-}
-
-}     
-.privacy-note{
-    margin-top:18px;
-    padding:14px 16px;
-    background:var(--green-pale);
-    border-left:4px solid var(--green-mid);
-    border-radius:12px;
-    font-size:.85rem;
-    line-height:1.6;
-    color:var(--charcoal-mid);
-}
 
     /* ============================================================
        SCROLL REVEAL
@@ -720,7 +675,7 @@ grid-template-columns:1fr;
       <!-- Logo: image + small wordmark -->
       <a href="#hero" class="nav-brand" aria-label="TrendIT Systems – Home">
         <img src="images/logo.jpg" alt="TrendIT Systems logo" />
-        <span class="nav-logo-text">TrendIT Systems</span>
+        <span class="nav-logo-text">TrendIT<span>Systems</span></span>
       </a>
 
       <!-- Desktop Links -->
@@ -799,12 +754,12 @@ grid-template-columns:1fr;
         </div>
 
         <h1 class="hero-headline">
-          Power, <em>Entertainment</em> &amp;<br>Technology
+          Power, <em>Entertainment</em> &amp;<br>Technology — <em>Sorted</em>
         </h1>
 
         <p class="hero-sub">
           TrendIT Systems brings you reliable solar &amp; inverter installation, affordable IPTV subscriptions,
-          and dependable IT support all under one roof in the whole of Nigeria.
+          and dependable IT support — all under one roof in Ogun State.
         </p>
 
         <div class="hero-pills" aria-hidden="true">
@@ -920,7 +875,7 @@ grid-template-columns:1fr;
         <span class="section-label">What We Offer</span>
         <h2 class="section-title" id="services-title">Three Services. <span>One Trusted Team.</span></h2>
         <p class="section-sub">
-          From keeping the lights on to keeping you online and entertained, TrendIT Systems covers it all.
+          From keeping the lights on to keeping you online and entertained — TrendIT Systems covers it all.
         </p>
       </div>
 
@@ -938,7 +893,7 @@ grid-template-columns:1fr;
           </div>
           <h3>Solar &amp; Inverter Systems</h3>
           <p class="service-desc">
-            Our flagship service. Complete solar, inverter, and battery installations for homes and businesses designed to eliminate outages and fuel costs for good.
+            Our flagship service. Complete solar, inverter, and battery installations for homes and businesses — designed to eliminate outages and fuel costs for good.
           </p>
           <ul class="sub-services">
             <li><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> Home & business solar installation</li>
@@ -963,7 +918,7 @@ grid-template-columns:1fr;
           </div>
           <h3>IPTV</h3>
           <p class="service-desc">
-            Enjoy thousands of live TV channels, sports, and movies from around the world at an affordable monthly rate no satellite dish required.
+            Enjoy thousands of live TV channels, sports, and movies from around the world at an affordable monthly rate — no satellite dish required.
           </p>
           <ul class="sub-services">
             <li><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> IPTV reseller plans (start your own business)</li>
@@ -987,7 +942,7 @@ grid-template-columns:1fr;
           </div>
           <h3>Technology &amp; IT Support</h3>
           <p class="service-desc">
-            Reliable tech support for businesses and hospitality from internet setup to hotel management systems and document digitalisation.
+            Reliable tech support for businesses and hospitality — from internet setup to hotel management systems and document digitalisation.
           </p>
           <ul class="sub-services">
             <li><svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7"/></svg> ICT Support</li>
@@ -1016,12 +971,12 @@ grid-template-columns:1fr;
         <span class="section-label">Solar &amp; Inverter Pricing</span>
         <h2 class="section-title" id="pricing-title">Find a Package That <span>Fits Your Load</span></h2>
         <p class="section-sub">
-          Pricing below shows our most popular packages. Final cost depends on your home or business's specific power needs chat with us for a tailored quote.
+          Pricing below shows our most popular packages. Final cost depends on your home or business's specific power needs — chat with us for a tailored quote.
         </p>
       </div>
 
       <div class="pricing-note reveal">
-        ⚡ All packages include <strong>free installation, free delivery, and a free gift</strong> and many more offers available on request.
+        ⚡ All packages include <strong>free installation, free delivery, and a free gift</strong> — and many more offers available on request.
       </div>
 
       <!-- 12v CATEGORY -->
@@ -1227,7 +1182,7 @@ grid-template-columns:1fr;
           <span class="section-label">Why TrendIT Systems</span>
           <h2 class="section-title" id="why-title">Power You Can <span>Actually Trust</span></h2>
           <p class="section-sub">
-            We don't just sell solar panels we deliver complete energy, entertainment, and technology solutions backed by local expertise, honest pricing, and support long after installation day.
+            We don't just sell solar panels — we deliver complete energy, entertainment, and technology solutions backed by local expertise, honest pricing, and support long after installation day.
           </p>
           <a href="https://wa.me/2347035458331" target="_blank" rel="noopener" class="btn-primary">
             <svg class="wa-icon" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
@@ -1242,7 +1197,7 @@ grid-template-columns:1fr;
               <svg viewBox="0 0 24 24"><path d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </div>
             <h4>Experienced &amp; Certified</h4>
-            <p>Over 5 years installing solar systems across Nigeria with trained, certified technicians on every job.</p>
+            <p>Over 5 years installing solar systems across Ogun State with trained, certified technicians on every job.</p>
           </div>
 
           <div class="why-item">
@@ -1250,7 +1205,7 @@ grid-template-columns:1fr;
               <svg viewBox="0 0 24 24"><path d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </div>
             <h4>Transparent Pricing</h4>
-            <p>No hidden fees, no inflated quotes. We give you honest, itemised pricing that fits your budget, big or small.</p>
+            <p>No hidden fees, no inflated quotes. We give you honest, itemised pricing that fits your budget — big or small.</p>
           </div>
 
           <div class="why-item">
@@ -1266,7 +1221,7 @@ grid-template-columns:1fr;
               <svg viewBox="0 0 24 24"><path d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" stroke-linecap="round" stroke-linejoin="round"/></svg>
             </div>
             <h4>After-Sales Support</h4>
-            <p>We stay with you after the job is done. Routine maintenance, troubleshooting, and system monitoring, we've got you covered.</p>
+            <p>We stay with you after the job is done. Routine maintenance, troubleshooting, and system monitoring — we've got you covered.</p>
           </div>
 
         </div>
@@ -1285,7 +1240,7 @@ grid-template-columns:1fr;
         <span class="section-label">Our Work</span>
         <h2 class="section-title" id="projects-title">Recent <span>Installations</span></h2>
         <p class="section-sub">
-          A snapshot of solar systems we've installed for homes and businesses across Abuja and Nigeria.
+          A snapshot of solar systems we've installed for homes and businesses across Abeokuta and the wider Ogun State region.
         </p>
       </div>
 
@@ -1293,7 +1248,6 @@ grid-template-columns:1fr;
 
         <article class="project-card">
           <div class="project-img">
-            <img src="images/photo_2026-04-30_13-20-28.jpg" alt="Photo of a residential solar installation in Abuja" class="project-img-src"/>
             <div class="project-img-inner">
               <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <rect x="4" y="14" width="40" height="26" rx="2" fill="currentColor" opacity="0.3"/>
@@ -1310,7 +1264,7 @@ grid-template-columns:1fr;
           </div>
           <div class="project-body">
             <span class="project-tag">Residential</span>
-            <h3>3.5kW Home System – Abuja</h3>
+            <h3>3.5kW Home System – Abeokuta South</h3>
             <p>Off-grid solar + battery bank for a 4-bedroom home. Covers lighting, fans, fridge, and TV with zero NEPA dependency.</p>
             <div class="project-meta">
               <span class="meta-item"><svg viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z" stroke-linecap="round" stroke-linejoin="round"/></svg> 3.5 kW</span>
@@ -1321,7 +1275,6 @@ grid-template-columns:1fr;
 
         <article class="project-card">
           <div class="project-img">
-            <img src="images/photo_2026-04-30_13-24-43.jpg" alt="Photo of a commercial solar installation in Abuja" class="project-img-src"/>
             <div class="project-img-inner">
               <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <rect x="2" y="10" width="44" height="28" rx="2" fill="currentColor" opacity="0.3"/>
@@ -1338,7 +1291,7 @@ grid-template-columns:1fr;
           </div>
           <div class="project-body">
             <span class="project-tag">Commercial</span>
-            <h3>10kW Business System – Abuja</h3>
+            <h3>10kW Business System – Sagamu</h3>
             <p>Hybrid solar installation for a supermarket and cold room. Eliminated diesel generator costs by over 80%.</p>
             <div class="project-meta">
               <span class="meta-item"><svg viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z" stroke-linecap="round" stroke-linejoin="round"/></svg> 10 kW</span>
@@ -1349,7 +1302,6 @@ grid-template-columns:1fr;
 
         <article class="project-card">
           <div class="project-img">
-            <img src="images/photo_2026-04-30_13-24-45.jpg" alt="Photo of an inverter installation in Abuja" class="project-img-src"/>
             <div class="project-img-inner">
               <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <rect x="6" y="16" width="36" height="22" rx="2" fill="currentColor" opacity="0.3"/>
@@ -1367,7 +1319,7 @@ grid-template-columns:1fr;
           </div>
           <div class="project-body">
             <span class="project-tag">Inverter & Battery</span>
-            <h3>5kVA Inverter System – Lagos</h3>
+            <h3>5kVA Inverter System – Ijebu Ode</h3>
             <p>Complete inverter and lithium battery installation for a clinic requiring uninterrupted 24/7 power supply for equipment.</p>
             <div class="project-meta">
               <span class="meta-item"><svg viewBox="0 0 24 24"><path d="M13 10V3L4 14h7v7l9-11h-7z" stroke-linecap="round" stroke-linejoin="round"/></svg> 5 kVA</span>
@@ -1381,139 +1333,6 @@ grid-template-columns:1fr;
   </section>
 
 
-  <section id="contact">
-  <div class="container">
-
-    <div class="contact-header reveal">
-      <span class="section-label">Contact Us</span>
-      <h2 class="section-title">
-        Let's Build Something <span>Great Together</span>
-      </h2>
-
-      <p class="section-sub">
-        Looking for solar installation, IPTV subscription, or IT support?
-        Fill out the form below and we'll get back to you within 24 hours.
-      </p>
-    </div>
-
-    <div class="contact-wrapper reveal">
-
-      <div class="contact-info">
-
-        <h3>Why Contact TrendIT?</h3>
-
-        <div class="contact-item">
-          ⚡ Free consultation
-        </div>
-
-        <div class="contact-item">
-          📍 Nationwide Installation
-        </div>
-
-        <div class="contact-item">
-          💬 Fast WhatsApp Support
-        </div>
-
-        <div class="contact-item">
-          🛠 Professional Technicians
-        </div>
-
-        <div class="contact-item">
-          ⭐ Affordable Pricing
-        </div>
-
-      </div>
-
-      <form
-        id="contactForm"
-        action="https://formspree.io/f/xrewyvbp"
-        method="POST"
-      >
-
-        <div class="input-group">
-          <label>Full Name</label>
-          <input
-            type="text"
-            name="name"
-            placeholder="John Doe"
-            required
-          >
-        </div>
-
-        <div class="input-group">
-          <label>Email Address</label>
-          <input
-            type="email"
-            name="email"
-            placeholder="john@email.com"
-            required
-          >
-        </div>
-
-        <div class="input-group">
-          <label>Phone Number</label>
-          <input
-            type="tel"
-            name="phone"
-            placeholder="+234..."
-          >
-        </div>
-
-        <div class="input-group">
-          <label>Service Needed</label>
-
-          <select name="service">
-
-            <option>Solar Installation</option>
-
-            <option>Solar Maintenance</option>
-
-            <option>IPTV Subscription</option>
-
-            <option>IPTV Reseller</option>
-
-            <option>IT Support</option>
-
-            <option>General Enquiry</option>
-
-          </select>
-        </div>
-
-        <div class="input-group">
-          <label>Message</label>
-
-          <textarea
-            name="message"
-            rows="6"
-            placeholder="Tell us what you need..."
-            required
-          ></textarea>
-        </div>
-
-        <input
-          type="hidden"
-          name="_subject"
-          value="New TrendIT Website Enquiry"
-        >
-
-        <button class="btn-primary" type="submit">
-          Send Message
-        </button>
-
-        <p class="privacy-note">
-         🔒 Your information is safe with us. We only use your details to respond to your enquiry. We never sell or share your personal information with third parties.
-        </p>
-
-
-        <p id="formStatus"></p>
-
-      </form>
-
-    </div>
-
-  </div>
-</section>
-
   <!-- ============================================================
        TESTIMONIALS
   ============================================================ -->
@@ -1523,7 +1342,7 @@ grid-template-columns:1fr;
       <div class="testimonials-header reveal">
         <span class="section-label">Customer Reviews</span>
         <h2 class="section-title" id="testimonials-title">What Our <span>Clients Say</span></h2>
-        <p class="section-sub">Real feedback from real customers across Abuja and beyond.</p>
+        <p class="section-sub">Real feedback from real customers across Ogun State and beyond.</p>
       </div>
 
       <div class="testimonials-grid reveal-stagger">
@@ -1541,7 +1360,7 @@ grid-template-columns:1fr;
             <div class="author-avatar a1" aria-hidden="true">A</div>
             <div class="author-info">
               <div class="author-name">Adebayo Olusola</div>
-              <div class="author-role">Homeowner · Lagos</div>
+              <div class="author-role">Homeowner · Abeokuta North</div>
             </div>
           </div>
         </article>
@@ -1559,7 +1378,7 @@ grid-template-columns:1fr;
             <div class="author-avatar a2" aria-hidden="true">C</div>
             <div class="author-info">
               <div class="author-name">Chidi Nwosu</div>
-              <div class="author-role">Shop Owner · Abuja</div>
+              <div class="author-role">Shop Owner · Sagamu, Ogun State</div>
             </div>
           </div>
         </article>
@@ -1577,7 +1396,7 @@ grid-template-columns:1fr;
             <div class="author-avatar a3" aria-hidden="true">F</div>
             <div class="author-info">
               <div class="author-name">Funmilayo Bello</div>
-              <div class="author-role">Clinic Manager · Abuja</div>
+              <div class="author-role">Clinic Manager · Ijebu Ode</div>
             </div>
           </div>
         </article>
@@ -1585,6 +1404,105 @@ grid-template-columns:1fr;
       </div>
     </div>
   </section>
+
+
+  <!-- ============================================================
+       CONTACT BANNER STRIP
+  ============================================================ -->
+  <section id="contact-banner" aria-label="Contact us">
+    <div class="container">
+      <div class="banner-inner">
+        <div class="banner-text">
+          <h3>Have a question or ready to <span>get started?</span></h3>
+          <p>Send us a message — we'll get back to you within 24 hours.</p>
+        </div>
+        <button class="btn-banner" id="openContactModal" aria-haspopup="dialog" aria-controls="contactModal">
+          Send Us a Message
+          <svg viewBox="0 0 24 24"><path d="M5 12h14M12 5l7 7-7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Modal -->
+  <div class="modal-overlay" id="contactModal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="modal-box">
+
+      <!-- Close button -->
+      <button class="modal-close" id="closeContactModal" aria-label="Close contact form">
+        <svg viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12" stroke-linecap="round"/></svg>
+      </button>
+
+      <!-- Header -->
+      <div class="modal-header">
+        <span class="section-label">Get in Touch</span>
+        <h2 id="modal-title">Let's Talk About Your <span>Energy Needs</span></h2>
+        <p>Fill in your details and we'll reach out with the right solution for you.</p>
+      </div>
+
+      <!-- Error message -->
+      <div class="form-error" id="formError">
+        Something went wrong. Please try again or contact us directly on WhatsApp.
+      </div>
+
+      <!-- Form -->
+      <form id="contactForm" action="https://formspree.io/f/xrewyvbp" method="POST" novalidate>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="fname">Full Name *</label>
+            <input type="text" id="fname" name="name" placeholder="e.g. Adebayo Olusola" required />
+          </div>
+          <div class="form-group">
+            <label for="fphone">Phone Number *</label>
+            <input type="tel" id="fphone" name="phone" placeholder="e.g. 0803 000 0000" required />
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="fservice">Service Interested In *</label>
+          <select id="fservice" name="service" required>
+            <option value="" disabled selected>Select a service...</option>
+            <option value="Solar & Inverter – 12v System (₦300k – ₦1.2M)">Solar & Inverter – 12v System (₦300k – ₦1.2M)</option>
+            <option value="Solar & Inverter – 24v System (₦1.5M – ₦2.5M)">Solar & Inverter – 24v System (₦1.5M – ₦2.5M)</option>
+            <option value="Solar & Inverter – 48v System (₦2.6M+)">Solar & Inverter – 48v System (₦2.6M+)</option>
+            <option value="IPTV – Personal Subscription">IPTV – Personal Subscription</option>
+            <option value="IPTV – Reseller Plan">IPTV – Reseller Plan</option>
+            <option value="Technology & IT Support">Technology & IT Support</option>
+            <option value="Not sure – I need advice">Not sure – I need advice</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="fmessage">Message *</label>
+          <textarea id="fmessage" name="message" placeholder="Tell us a bit about what you need — your location, load size, or any questions you have..." required></textarea>
+        </div>
+
+        <!-- Hidden spam trap -->
+        <input type="text" name="_gotcha" style="display:none" />
+
+        <button type="submit" class="btn-submit" id="submitBtn">
+          <span id="submitText">Send Message</span>
+          <svg id="submitSpinner" style="display:none; width:18px; height:18px; animation: spin 0.8s linear infinite" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg>
+        </button>
+
+      </form>
+
+      <!-- Success state -->
+      <div class="form-success" id="formSuccess">
+        <div class="success-icon">
+          <svg viewBox="0 0 24 24"><path d="M5 13l4 4L19 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+        <h3>Message Sent!</h3>
+        <p>Thanks for reaching out. We'll get back to you within 24 hours. For faster response, chat us on WhatsApp.</p>
+        <a href="https://wa.me/2347035458331" target="_blank" rel="noopener" class="btn-primary" style="margin-top:8px; font-size:0.9rem; padding:12px 24px;">
+          <svg class="wa-icon" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+          Chat on WhatsApp
+        </a>
+      </div>
+
+    </div>
+  </div>
 
 
   <!-- ============================================================
@@ -1596,7 +1514,7 @@ grid-template-columns:1fr;
         <span class="section-label">Ready to Switch?</span>
         <h2 class="section-title" id="cta-title">Stop Paying for <span>Fuel &amp; Darkness</span></h2>
         <p class="section-sub">
-          Join hundreds of homes and businesses in Abuja enjoying clean, uninterrupted solar power, reliable IPTV, and dependable IT support. Get a free consultation today.
+          Join hundreds of homes and businesses in Ogun State enjoying clean, uninterrupted solar power, reliable IPTV, and dependable IT support. Get a free consultation today.
         </p>
         <div class="cta-btn-wrap">
           <a href="https://wa.me/2347035458331" target="_blank" rel="noopener" class="btn-primary">
@@ -1685,7 +1603,7 @@ grid-template-columns:1fr;
 
       <div class="footer-bottom">
         <span>© <span id="year"></span> TrendIT Systems. All rights reserved.</span>
-        <span>Made with ☀️ in Abuja, Nigeria</span>
+        <span>Made with ☀️ in Abeokuta, Nigeria</span>
       </div>
 
     </div>
@@ -1751,44 +1669,122 @@ grid-template-columns:1fr;
       revealObserver.observe(el);
     });
 
-    const form = document.getElementById("contactForm");
-const status = document.getElementById("formStatus");
+    /* ---- Contact Modal ---- */
+    const openBtn    = document.getElementById('openContactModal');
+    const closeBtn   = document.getElementById('closeContactModal');
+    const modal      = document.getElementById('contactModal');
+    const form       = document.getElementById('contactForm');
+    const submitBtn  = document.getElementById('submitBtn');
+    const submitText = document.getElementById('submitText');
+    const spinner    = document.getElementById('submitSpinner');
+    const success    = document.getElementById('formSuccess');
+    const errorBox   = document.getElementById('formError');
 
-form.addEventListener("submit", async function (e) {
+    function openModal() { modal.classList.add('open'); document.body.style.overflow = 'hidden'; }
+    function closeModal() { modal.classList.remove('open'); document.body.style.overflow = ''; }
 
-    e.preventDefault();
+    openBtn.addEventListener('click', openModal);
+    closeBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', (e) => { if (e.target === modal) closeModal(); });
+    document.addEventListener('keydown', (e) => { if (e.key === 'Escape' && modal.classList.contains('open')) closeModal(); });
 
-    status.textContent = "Sending message...";
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      errorBox.classList.remove('show');
 
-    const data = new FormData(form);
+      const name    = form.name.value.trim();
+      const phone   = form.phone.value.trim();
+      const service = form.service.value;
+      const message = form.message.value.trim();
 
-    const response = await fetch(form.action, {
+      if (!name || !phone || !service || !message) {
+        errorBox.textContent = 'Please fill in all required fields.';
+        errorBox.classList.add('show');
+        return;
+      }
 
-        method: "POST",
+      submitBtn.disabled = true;
+      submitText.textContent = 'Sending...';
+      spinner.style.display = 'inline-block';
 
-        body: data,
-
-        headers: {
-            Accept: "application/json"
-        }
-
+      try {
+        const res = await fetch(form.action, {
+          method: 'POST',
+          headers: { 'Accept': 'application/json' },
+          body: new FormData(form)
+        });
+        if (res.ok) {
+          form.style.display = 'none';
+          success.classList.add('show');
+        } else { throw new Error('error'); }
+      } catch {
+        errorBox.textContent = 'Something went wrong. Please try again or contact us on WhatsApp.';
+        errorBox.classList.add('show');
+        submitBtn.disabled = false;
+        submitText.textContent = 'Send Message';
+        spinner.style.display = 'none';
+      }
     });
 
-    if (response.ok) {
+    const spinStyle = document.createElement('style');
+    spinStyle.textContent = '@keyframes spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }';
+    document.head.appendChild(spinStyle);
 
-        status.textContent =
-            "✅ Thank you! Your message has been sent successfully.";
-
-        form.reset();
-
-    } else {
-
-        status.textContent =
-            "❌ Something went wrong. Please try again.";
-
-    }
-
-});
+  </script>
+  <!-- ============================================================
+       STRUCTURED DATA (SEO)
+  ============================================================ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "TrendIT Systems",
+    "image": "https://trendit-solar.vercel.app/images/logo.jpg",
+    "description": "TrendIT Systems provides affordable solar & inverter installation, IPTV subscriptions, and IT/technology support for homes and businesses in Abuja, Nigeria.",
+    "url": "https://trendit-solar.vercel.app/",
+    "telephone": "+2347035458331",
+    "email": "support@trenditsystems.com.ng",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Shop 8, Kubwa Central Market",
+      "addressLocality": "Kubwa",
+      "addressRegion": "Abuja",
+      "postalCode": "901101",
+      "addressCountry": "NG"
+    },
+    "areaServed": ["Abuja", "Kubwa", "Federal Capital Territory", "Nigeria"],
+    "sameAs": [
+      "https://web.facebook.com/TrendITSystems",
+      "https://www.instagram.com/trendit_systems/"
+    ],
+    "priceRange": "₦₦",
+    "makesOffer": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Solar & Inverter Installation",
+          "description": "Home and business solar, inverter, and battery installation across 12v, 24v, and 48v systems."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "IPTV Subscription & Reseller Plans",
+          "description": "Affordable IPTV subscriptions and reseller plans with access to live TV, sports, and movies."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Technology & IT Support",
+          "description": "ICT support, Hotel PMS, internet setup, IT consultancy, and document digitalisation."
+        }
+      }
+    ]
+  }
   </script>
 
 </body>
